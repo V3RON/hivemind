@@ -2,10 +2,15 @@ package pl.aitwar.hivemind.service;
 
 import org.springframework.stereotype.Service;
 import pl.aitwar.hivemind.domain.Movie;
-import pl.aitwar.hivemind.domain.MovieState;
+import pl.aitwar.hivemind.domain.enumeration.MovieState;
 import pl.aitwar.hivemind.repository.MovieRepository;
 import reactor.core.publisher.Flux;
 
+/**
+ * Manage movies being held in local database
+ *
+ * @author Szymon Chmal
+ */
 @Service
 public class MovieService {
     private final MovieRepository movieRepository;

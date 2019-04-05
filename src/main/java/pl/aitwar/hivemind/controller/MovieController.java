@@ -6,6 +6,11 @@ import pl.aitwar.hivemind.domain.Movie;
 import pl.aitwar.hivemind.service.MovieService;
 import reactor.core.publisher.Flux;
 
+/**
+ * Controller providing REST resource of movies
+ *
+ * @author Szymon Chmal
+ */
 @RestController
 public class MovieController {
     private final MovieService movieService;
@@ -14,6 +19,11 @@ public class MovieController {
         this.movieService = movieService;
     }
 
+    /**
+     * Get all movies from database
+     *
+     * @return Stream of movies
+     */
     @GetMapping("/movies")
     Flux<Movie> getMovies() {
         return movieService.getMovies();
