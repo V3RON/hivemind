@@ -22,7 +22,7 @@ public class OperationReportService {
     }
 
     public Flux<OperationReport> findRecent() {
-        return operationReportRepository.findAll();
+        return operationReportRepository.findAllByOrderByDateDesc();
     }
 
     public Mono<OperationReport> findMostRecentByMovie(Movie m) {
@@ -32,5 +32,9 @@ public class OperationReportService {
     public Mono<OperationReport> saveTransitionReport(Movie m, MovieState from, MovieState to) {
         OperationReport report = new OperationReport(m.getId(), from, to);
         return operationReportRepository.save(report);
+    }
+
+    public Flux<OperationReport> findByMovie(Movie movie) {
+        return operationReportRepository.findAllByMovie(movie.getId());
     }
 }
